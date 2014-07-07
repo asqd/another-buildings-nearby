@@ -1,0 +1,19 @@
+// Place all the styles related to the Map controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body { padding: 10px; }
+
+#maps {
+	width:900px;
+	height:400px;
+	margin: 0 auto;
+}
+
+.notice { 
+	text-align: right;
+	font-style: oblique;
+	font-weight: 600;
+ }
+
+.hidden { visibility: hidden; }

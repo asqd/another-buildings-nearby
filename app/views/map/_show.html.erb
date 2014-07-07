@@ -1,0 +1,17 @@
+<% if @buildings.any? %>
+
+<table class="table" cellspacing="10">
+	<tr>
+<th>Address</th>
+<th>Distance to point*</th>
+	</tr>
+	<% @buildings.each do |distance, building| %>
+	<tr>
+		<td><%= building.address %></td> 
+		<!-- Перобразовываем расстояние если оно меньше 1 километра в метры -->
+		<td><%= format_distance(distance) %></td>
+	</tr>
+	<% end %>
+</table>
+<p class="notice" >*buildings shown within 4 kilometers from the marker</p>
+<% end %>
