@@ -23,6 +23,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION postgis IS 'PostGIS geometry, geography, and raster spatial types and functions';
+
+
 SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
@@ -109,3 +123,5 @@ SET search_path TO "$user",public;
 INSERT INTO schema_migrations (version) VALUES ('20140701171330');
 
 INSERT INTO schema_migrations (version) VALUES ('20140702140219');
+
+INSERT INTO schema_migrations (version) VALUES ('20140707160709');
