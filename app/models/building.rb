@@ -10,7 +10,15 @@ class Building < ActiveRecord::Base
               ),
               ST_GeographyFromText('SRID=4332;POINT(%f %f)'), %d
             )
-    } % [longitude,latitude,distance])
+    } % [longitude,latitude,distance]).select(
+      %{ address,
+        ST_Distance(
+          ST_GeographyFromText(
+            'SRID=4326;POINT(' || longitude || ' ' || latitude || ')'
+          ),
+          ST_GeographyFromText('SRID=4332;POINT(%f %f)')
+        )/1000
+      as distance} % [longitude, latitude]).order('distance ASC')
   }
-  
+
 end
