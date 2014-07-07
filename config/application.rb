@@ -6,6 +6,14 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+module ActiveRecord
+  class Base
+    def self.establish_connection(spec = ENV["DATABASE_URL"].try(:gsub, "postgres", "postgis"))
+      super(spec)
+    end
+  end
+end
+
 class ActiveRecordOverrideRailtie < Rails::Railtie
   initializer "active_record.initialize_database.override" do |app|
 
