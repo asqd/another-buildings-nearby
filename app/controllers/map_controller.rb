@@ -3,7 +3,6 @@ class MapController < ApplicationController
 
   respond_to :html, :js
   def index
-    #@buildings = Building.all
   end
 
   def show
@@ -11,10 +10,6 @@ class MapController < ApplicationController
 
     @buildings = Building.close_to(point[:latitude], point[:longitude])
     
-    #distances = compute_distances(@buildings, point)
-
-    #@buildings = distances.sort_by { |k, v| k }
-
     respond_to do |format|
       format.html { redirect_to root_url }
       format.js {}

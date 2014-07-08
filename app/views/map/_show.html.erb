@@ -8,7 +8,6 @@
 	<% @buildings.each do |building| %>
 	<tr>
 		<td><%= building.address %></td> 
-		<!-- Перобразовываем расстояние если оно меньше 1 километра в метры -->
 		<td class="distance"><%= format_distance(building.distance) %></td>
 	</tr>
 	<% end %>
